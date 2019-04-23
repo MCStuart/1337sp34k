@@ -1,24 +1,30 @@
 using System;
 
-namespace Leetspeak
+namespace SharedLeetspeak
 {
     public class Leetspeak
     {
         public string LeetspeakGenerator(string userInput)
         {
-            if (userInput == "e")
+            char[] letters = userInput.ToCharArray();
+            string word = new string(letters);
+            Console.WriteLine(word);
+            for (int i = 0; i <= word.Length - 1; i++)
             {
-                return "3";
+                word.Replace("e","3");
+                word.Replace("o","0");
+                word.Replace("I","1");
+                word.Replace("t","7");
+                word.Replace("s","s");
+                if (word.Contains("s") && !word.StartsWith("s"))
+                {
+                    word.Replace("s","z");
+                }
+                else
+                {
+                    return "";
+                }
             }
-            if (userInput == "o")
-            {
-                return "0";
-            }
-            if (userInput == "I")
-            {
-                return "1";
-            }
-            return "";
         }
     }
 }
